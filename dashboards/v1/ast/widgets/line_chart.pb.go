@@ -7,9 +7,9 @@
 package widgets
 
 import (
-	ast "com/coralogixapis/dashboards/v1/ast"
-	common "com/coralogixapis/dashboards/v1/ast/widgets/common"
-	common1 "com/coralogixapis/dashboards/v1/common"
+	ast "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast"
+	widgetscommon "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast/widgets/common"
+	common "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
@@ -79,7 +79,7 @@ type LineChart struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Legend           *common.Legend               `protobuf:"bytes,2,opt,name=legend,proto3" json:"legend,omitempty"`
+	Legend           *widgetscommon.Legend               `protobuf:"bytes,2,opt,name=legend,proto3" json:"legend,omitempty"`
 	Tooltip          *LineChart_Tooltip           `protobuf:"bytes,6,opt,name=tooltip,proto3" json:"tooltip,omitempty"`
 	QueryDefinitions []*LineChart_QueryDefinition `protobuf:"bytes,7,rep,name=query_definitions,json=queryDefinitions,proto3" json:"query_definitions,omitempty"`
 }
@@ -116,7 +116,7 @@ func (*LineChart) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_line_chart_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *LineChart) GetLegend() *common.Legend {
+func (x *LineChart) GetLegend() *widgetscommon.Legend {
 	if x != nil {
 		return x.Legend
 	}
@@ -146,8 +146,8 @@ type LineChart_QueryDefinition struct {
 	Query              *LineChart_Query        `protobuf:"bytes,2,opt,name=query,proto3" json:"query,omitempty"`
 	SeriesNameTemplate *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=series_name_template,json=seriesNameTemplate,proto3" json:"series_name_template,omitempty"`
 	SeriesCountLimit   *wrapperspb.Int64Value  `protobuf:"bytes,4,opt,name=series_count_limit,json=seriesCountLimit,proto3" json:"series_count_limit,omitempty"`
-	Unit               common.Unit             `protobuf:"varint,5,opt,name=unit,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.common.Unit" json:"unit,omitempty"`
-	ScaleType          common.ScaleType        `protobuf:"varint,6,opt,name=scale_type,json=scaleType,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.common.ScaleType" json:"scale_type,omitempty"`
+	Unit               widgetscommon.Unit             `protobuf:"varint,5,opt,name=unit,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.Unit" json:"unit,omitempty"`
+	ScaleType          widgetscommon.ScaleType        `protobuf:"varint,6,opt,name=scale_type,json=scaleType,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.ScaleType" json:"scale_type,omitempty"`
 	Name               *wrapperspb.StringValue `protobuf:"bytes,7,opt,name=name,proto3" json:"name,omitempty"`
 	IsVisible          *wrapperspb.BoolValue   `protobuf:"bytes,8,opt,name=is_visible,json=isVisible,proto3" json:"is_visible,omitempty"`
 	ColorScheme        *wrapperspb.StringValue `protobuf:"bytes,9,opt,name=color_scheme,json=colorScheme,proto3" json:"color_scheme,omitempty"`
@@ -214,18 +214,18 @@ func (x *LineChart_QueryDefinition) GetSeriesCountLimit() *wrapperspb.Int64Value
 	return nil
 }
 
-func (x *LineChart_QueryDefinition) GetUnit() common.Unit {
+func (x *LineChart_QueryDefinition) GetUnit() widgetscommon.Unit {
 	if x != nil {
 		return x.Unit
 	}
-	return common.Unit(0)
+	return widgetscommon.Unit(0)
 }
 
-func (x *LineChart_QueryDefinition) GetScaleType() common.ScaleType {
+func (x *LineChart_QueryDefinition) GetScaleType() widgetscommon.ScaleType {
 	if x != nil {
 		return x.ScaleType
 	}
-	return common.ScaleType(0)
+	return widgetscommon.ScaleType(0)
 }
 
 func (x *LineChart_QueryDefinition) GetName() *wrapperspb.StringValue {
@@ -410,9 +410,9 @@ type LineChart_LogsQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LuceneQuery  *common.LuceneQuery        `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
+	LuceneQuery  *widgetscommon.LuceneQuery        `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
 	GroupBy      []*wrapperspb.StringValue  `protobuf:"bytes,2,rep,name=group_by,json=groupBy,proto3" json:"group_by,omitempty"`
-	Aggregations []*common1.LogsAggregation `protobuf:"bytes,3,rep,name=aggregations,proto3" json:"aggregations,omitempty"`
+	Aggregations []*common.LogsAggregation `protobuf:"bytes,3,rep,name=aggregations,proto3" json:"aggregations,omitempty"`
 	Filters      []*ast.Filter_LogsFilter   `protobuf:"bytes,4,rep,name=filters,proto3" json:"filters,omitempty"`
 }
 
@@ -448,7 +448,7 @@ func (*LineChart_LogsQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_line_chart_proto_rawDescGZIP(), []int{0, 3}
 }
 
-func (x *LineChart_LogsQuery) GetLuceneQuery() *common.LuceneQuery {
+func (x *LineChart_LogsQuery) GetLuceneQuery() *widgetscommon.LuceneQuery {
 	if x != nil {
 		return x.LuceneQuery
 	}
@@ -462,7 +462,7 @@ func (x *LineChart_LogsQuery) GetGroupBy() []*wrapperspb.StringValue {
 	return nil
 }
 
-func (x *LineChart_LogsQuery) GetAggregations() []*common1.LogsAggregation {
+func (x *LineChart_LogsQuery) GetAggregations() []*common.LogsAggregation {
 	if x != nil {
 		return x.Aggregations
 	}
@@ -481,7 +481,7 @@ type LineChart_MetricsQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	PromqlQuery *common.PromQlQuery         `protobuf:"bytes,1,opt,name=promql_query,json=promqlQuery,proto3" json:"promql_query,omitempty"`
+	PromqlQuery *widgetscommon.PromQlQuery         `protobuf:"bytes,1,opt,name=promql_query,json=promqlQuery,proto3" json:"promql_query,omitempty"`
 	Filters     []*ast.Filter_MetricsFilter `protobuf:"bytes,2,rep,name=filters,proto3" json:"filters,omitempty"`
 }
 
@@ -517,7 +517,7 @@ func (*LineChart_MetricsQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_line_chart_proto_rawDescGZIP(), []int{0, 4}
 }
 
-func (x *LineChart_MetricsQuery) GetPromqlQuery() *common.PromQlQuery {
+func (x *LineChart_MetricsQuery) GetPromqlQuery() *widgetscommon.PromQlQuery {
 	if x != nil {
 		return x.PromqlQuery
 	}
@@ -536,9 +536,9 @@ type LineChart_SpansQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LuceneQuery  *common.LuceneQuery         `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
-	GroupBy      []*common1.SpanField        `protobuf:"bytes,2,rep,name=group_by,json=groupBy,proto3" json:"group_by,omitempty"`
-	Aggregations []*common1.SpansAggregation `protobuf:"bytes,3,rep,name=aggregations,proto3" json:"aggregations,omitempty"`
+	LuceneQuery  *widgetscommon.LuceneQuery         `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
+	GroupBy      []*common.SpanField        `protobuf:"bytes,2,rep,name=group_by,json=groupBy,proto3" json:"group_by,omitempty"`
+	Aggregations []*common.SpansAggregation `protobuf:"bytes,3,rep,name=aggregations,proto3" json:"aggregations,omitempty"`
 	Filters      []*ast.Filter_SpansFilter   `protobuf:"bytes,4,rep,name=filters,proto3" json:"filters,omitempty"`
 }
 
@@ -574,21 +574,21 @@ func (*LineChart_SpansQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_line_chart_proto_rawDescGZIP(), []int{0, 5}
 }
 
-func (x *LineChart_SpansQuery) GetLuceneQuery() *common.LuceneQuery {
+func (x *LineChart_SpansQuery) GetLuceneQuery() *widgetscommon.LuceneQuery {
 	if x != nil {
 		return x.LuceneQuery
 	}
 	return nil
 }
 
-func (x *LineChart_SpansQuery) GetGroupBy() []*common1.SpanField {
+func (x *LineChart_SpansQuery) GetGroupBy() []*common.SpanField {
 	if x != nil {
 		return x.GroupBy
 	}
 	return nil
 }
 
-func (x *LineChart_SpansQuery) GetAggregations() []*common1.SpansAggregation {
+func (x *LineChart_SpansQuery) GetAggregations() []*common.SpansAggregation {
 	if x != nil {
 		return x.Aggregations
 	}
@@ -900,33 +900,33 @@ var file_com_coralogixapis_dashboards_v1_ast_widgets_line_chart_proto_goTypes = 
 	(*LineChart_MetricsQuery)(nil),    // 6: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.MetricsQuery
 	(*LineChart_SpansQuery)(nil),      // 7: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.SpansQuery
 	(*LineChart_Resolution)(nil),      // 8: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.Resolution
-	(*common.Legend)(nil),             // 9: com.coralogixapis.dashboards.v1.ast.widgets.common.Legend
+	(*widgetscommon.Legend)(nil),             // 9: com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.Legend
 	(*wrapperspb.StringValue)(nil),    // 10: google.protobuf.StringValue
 	(*wrapperspb.Int64Value)(nil),     // 11: google.protobuf.Int64Value
-	(common.Unit)(0),                  // 12: com.coralogixapis.dashboards.v1.ast.widgets.common.Unit
-	(common.ScaleType)(0),             // 13: com.coralogixapis.dashboards.v1.ast.widgets.common.ScaleType
+	(widgetscommon.Unit)(0),                  // 12: com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.Unit
+	(widgetscommon.ScaleType)(0),             // 13: com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.ScaleType
 	(*wrapperspb.BoolValue)(nil),      // 14: google.protobuf.BoolValue
-	(*common.LuceneQuery)(nil),        // 15: com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
-	(*common1.LogsAggregation)(nil),   // 16: com.coralogixapis.dashboards.v1.common.LogsAggregation
+	(*widgetscommon.LuceneQuery)(nil),        // 15: com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.LuceneQuery
+	(*common.LogsAggregation)(nil),   // 16: com.coralogixapis.dashboards.v1.widgetscommon.LogsAggregation
 	(*ast.Filter_LogsFilter)(nil),     // 17: com.coralogixapis.dashboards.v1.ast.Filter.LogsFilter
-	(*common.PromQlQuery)(nil),        // 18: com.coralogixapis.dashboards.v1.ast.widgets.common.PromQlQuery
+	(*widgetscommon.PromQlQuery)(nil),        // 18: com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.PromQlQuery
 	(*ast.Filter_MetricsFilter)(nil),  // 19: com.coralogixapis.dashboards.v1.ast.Filter.MetricsFilter
-	(*common1.SpanField)(nil),         // 20: com.coralogixapis.dashboards.v1.common.SpanField
-	(*common1.SpansAggregation)(nil),  // 21: com.coralogixapis.dashboards.v1.common.SpansAggregation
+	(*common.SpanField)(nil),         // 20: com.coralogixapis.dashboards.v1.widgetscommon.SpanField
+	(*common.SpansAggregation)(nil),  // 21: com.coralogixapis.dashboards.v1.widgetscommon.SpansAggregation
 	(*ast.Filter_SpansFilter)(nil),    // 22: com.coralogixapis.dashboards.v1.ast.Filter.SpansFilter
 	(*durationpb.Duration)(nil),       // 23: google.protobuf.Duration
 	(*wrapperspb.Int32Value)(nil),     // 24: google.protobuf.Int32Value
 }
 var file_com_coralogixapis_dashboards_v1_ast_widgets_line_chart_proto_depIdxs = []int32{
-	9,  // 0: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.legend:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.common.Legend
+	9,  // 0: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.legend:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.Legend
 	4,  // 1: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.tooltip:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.LineChart.Tooltip
 	2,  // 2: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.query_definitions:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition
 	10, // 3: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.id:type_name -> google.protobuf.StringValue
 	3,  // 4: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.LineChart.Query
 	10, // 5: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.series_name_template:type_name -> google.protobuf.StringValue
 	11, // 6: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.series_count_limit:type_name -> google.protobuf.Int64Value
-	12, // 7: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.unit:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.common.Unit
-	13, // 8: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.scale_type:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.common.ScaleType
+	12, // 7: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.unit:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.Unit
+	13, // 8: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.scale_type:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.ScaleType
 	10, // 9: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.name:type_name -> google.protobuf.StringValue
 	14, // 10: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.is_visible:type_name -> google.protobuf.BoolValue
 	10, // 11: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.QueryDefinition.color_scheme:type_name -> google.protobuf.StringValue
@@ -936,15 +936,15 @@ var file_com_coralogixapis_dashboards_v1_ast_widgets_line_chart_proto_depIdxs = 
 	7,  // 15: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.Query.spans:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.LineChart.SpansQuery
 	14, // 16: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.Tooltip.show_labels:type_name -> google.protobuf.BoolValue
 	0,  // 17: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.Tooltip.type:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.LineChart.TooltipType
-	15, // 18: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.LogsQuery.lucene_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
+	15, // 18: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.LogsQuery.lucene_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.LuceneQuery
 	10, // 19: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.LogsQuery.group_by:type_name -> google.protobuf.StringValue
-	16, // 20: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.LogsQuery.aggregations:type_name -> com.coralogixapis.dashboards.v1.common.LogsAggregation
+	16, // 20: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.LogsQuery.aggregations:type_name -> com.coralogixapis.dashboards.v1.widgetscommon.LogsAggregation
 	17, // 21: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.LogsQuery.filters:type_name -> com.coralogixapis.dashboards.v1.ast.Filter.LogsFilter
-	18, // 22: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.MetricsQuery.promql_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.common.PromQlQuery
+	18, // 22: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.MetricsQuery.promql_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.PromQlQuery
 	19, // 23: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.MetricsQuery.filters:type_name -> com.coralogixapis.dashboards.v1.ast.Filter.MetricsFilter
-	15, // 24: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.SpansQuery.lucene_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
-	20, // 25: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.SpansQuery.group_by:type_name -> com.coralogixapis.dashboards.v1.common.SpanField
-	21, // 26: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.SpansQuery.aggregations:type_name -> com.coralogixapis.dashboards.v1.common.SpansAggregation
+	15, // 24: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.SpansQuery.lucene_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.LuceneQuery
+	20, // 25: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.SpansQuery.group_by:type_name -> com.coralogixapis.dashboards.v1.widgetscommon.SpanField
+	21, // 26: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.SpansQuery.aggregations:type_name -> com.coralogixapis.dashboards.v1.widgetscommon.SpansAggregation
 	22, // 27: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.SpansQuery.filters:type_name -> com.coralogixapis.dashboards.v1.ast.Filter.SpansFilter
 	23, // 28: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.Resolution.interval:type_name -> google.protobuf.Duration
 	24, // 29: com.coralogixapis.dashboards.v1.ast.widgets.LineChart.Resolution.buckets_presented:type_name -> google.protobuf.Int32Value

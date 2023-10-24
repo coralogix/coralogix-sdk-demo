@@ -7,9 +7,9 @@
 package widgets
 
 import (
-	ast "com/coralogixapis/dashboards/v1/ast"
-	common "com/coralogixapis/dashboards/v1/ast/widgets/common"
-	common1 "com/coralogixapis/dashboards/v1/common"
+	ast "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast"
+	widgetscommon "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast/widgets/common"
+	common "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
@@ -33,12 +33,12 @@ type HorizontalBarChart struct {
 	MaxBarsPerChart   *wrapperspb.Int32Value              `protobuf:"bytes,2,opt,name=max_bars_per_chart,json=maxBarsPerChart,proto3" json:"max_bars_per_chart,omitempty"`
 	GroupNameTemplate *wrapperspb.StringValue             `protobuf:"bytes,3,opt,name=group_name_template,json=groupNameTemplate,proto3" json:"group_name_template,omitempty"`
 	StackDefinition   *HorizontalBarChart_StackDefinition `protobuf:"bytes,4,opt,name=stack_definition,json=stackDefinition,proto3" json:"stack_definition,omitempty"`
-	ScaleType         common.ScaleType                    `protobuf:"varint,5,opt,name=scale_type,json=scaleType,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.common.ScaleType" json:"scale_type,omitempty"`
-	ColorsBy          *common.ColorsBy                    `protobuf:"bytes,6,opt,name=colors_by,json=colorsBy,proto3" json:"colors_by,omitempty"`
-	Unit              common.Unit                         `protobuf:"varint,8,opt,name=unit,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.common.Unit" json:"unit,omitempty"`
+	ScaleType         widgetscommon.ScaleType                    `protobuf:"varint,5,opt,name=scale_type,json=scaleType,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.common.ScaleType" json:"scale_type,omitempty"`
+	ColorsBy          *widgetscommon.ColorsBy                    `protobuf:"bytes,6,opt,name=colors_by,json=colorsBy,proto3" json:"colors_by,omitempty"`
+	Unit              widgetscommon.Unit                         `protobuf:"varint,8,opt,name=unit,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.common.Unit" json:"unit,omitempty"`
 	DisplayOnBar      *wrapperspb.BoolValue               `protobuf:"bytes,9,opt,name=display_on_bar,json=displayOnBar,proto3" json:"display_on_bar,omitempty"`
 	YAxisViewBy       *HorizontalBarChart_YAxisViewBy     `protobuf:"bytes,10,opt,name=y_axis_view_by,json=yAxisViewBy,proto3" json:"y_axis_view_by,omitempty"`
-	SortBy            common.SortByType                   `protobuf:"varint,11,opt,name=sort_by,json=sortBy,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.common.SortByType" json:"sort_by,omitempty"`
+	SortBy            widgetscommon.SortByType                   `protobuf:"varint,11,opt,name=sort_by,json=sortBy,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.common.SortByType" json:"sort_by,omitempty"`
 	ColorScheme       *wrapperspb.StringValue             `protobuf:"bytes,12,opt,name=color_scheme,json=colorScheme,proto3" json:"color_scheme,omitempty"`
 }
 
@@ -102,25 +102,25 @@ func (x *HorizontalBarChart) GetStackDefinition() *HorizontalBarChart_StackDefin
 	return nil
 }
 
-func (x *HorizontalBarChart) GetScaleType() common.ScaleType {
+func (x *HorizontalBarChart) GetScaleType() widgetscommon.ScaleType {
 	if x != nil {
 		return x.ScaleType
 	}
-	return common.ScaleType(0)
+	return widgetscommon.ScaleType(0)
 }
 
-func (x *HorizontalBarChart) GetColorsBy() *common.ColorsBy {
+func (x *HorizontalBarChart) GetColorsBy() *widgetscommon.ColorsBy {
 	if x != nil {
 		return x.ColorsBy
 	}
 	return nil
 }
 
-func (x *HorizontalBarChart) GetUnit() common.Unit {
+func (x *HorizontalBarChart) GetUnit() widgetscommon.Unit {
 	if x != nil {
 		return x.Unit
 	}
-	return common.Unit(0)
+	return widgetscommon.Unit(0)
 }
 
 func (x *HorizontalBarChart) GetDisplayOnBar() *wrapperspb.BoolValue {
@@ -137,11 +137,11 @@ func (x *HorizontalBarChart) GetYAxisViewBy() *HorizontalBarChart_YAxisViewBy {
 	return nil
 }
 
-func (x *HorizontalBarChart) GetSortBy() common.SortByType {
+func (x *HorizontalBarChart) GetSortBy() widgetscommon.SortByType {
 	if x != nil {
 		return x.SortBy
 	}
-	return common.SortByType(0)
+	return widgetscommon.SortByType(0)
 }
 
 func (x *HorizontalBarChart) GetColorScheme() *wrapperspb.StringValue {
@@ -385,8 +385,8 @@ type HorizontalBarChart_LogsQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LuceneQuery      *common.LuceneQuery       `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
-	Aggregation      *common1.LogsAggregation  `protobuf:"bytes,2,opt,name=aggregation,proto3" json:"aggregation,omitempty"`
+	LuceneQuery      *widgetscommon.LuceneQuery       `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
+	Aggregation      *common.LogsAggregation  `protobuf:"bytes,2,opt,name=aggregation,proto3" json:"aggregation,omitempty"`
 	Filters          []*ast.Filter_LogsFilter  `protobuf:"bytes,3,rep,name=filters,proto3" json:"filters,omitempty"`
 	GroupNames       []*wrapperspb.StringValue `protobuf:"bytes,4,rep,name=group_names,json=groupNames,proto3" json:"group_names,omitempty"`
 	StackedGroupName *wrapperspb.StringValue   `protobuf:"bytes,5,opt,name=stacked_group_name,json=stackedGroupName,proto3" json:"stacked_group_name,omitempty"`
@@ -424,14 +424,14 @@ func (*HorizontalBarChart_LogsQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_horizontal_bar_chart_proto_rawDescGZIP(), []int{0, 3}
 }
 
-func (x *HorizontalBarChart_LogsQuery) GetLuceneQuery() *common.LuceneQuery {
+func (x *HorizontalBarChart_LogsQuery) GetLuceneQuery() *widgetscommon.LuceneQuery {
 	if x != nil {
 		return x.LuceneQuery
 	}
 	return nil
 }
 
-func (x *HorizontalBarChart_LogsQuery) GetAggregation() *common1.LogsAggregation {
+func (x *HorizontalBarChart_LogsQuery) GetAggregation() *common.LogsAggregation {
 	if x != nil {
 		return x.Aggregation
 	}
@@ -464,11 +464,11 @@ type HorizontalBarChart_SpansQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LuceneQuery      *common.LuceneQuery       `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
-	Aggregation      *common1.SpansAggregation `protobuf:"bytes,2,opt,name=aggregation,proto3" json:"aggregation,omitempty"`
+	LuceneQuery      *widgetscommon.LuceneQuery       `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
+	Aggregation      *common.SpansAggregation `protobuf:"bytes,2,opt,name=aggregation,proto3" json:"aggregation,omitempty"`
 	Filters          []*ast.Filter_SpansFilter `protobuf:"bytes,3,rep,name=filters,proto3" json:"filters,omitempty"`
-	GroupNames       []*common1.SpanField      `protobuf:"bytes,4,rep,name=group_names,json=groupNames,proto3" json:"group_names,omitempty"`
-	StackedGroupName *common1.SpanField        `protobuf:"bytes,5,opt,name=stacked_group_name,json=stackedGroupName,proto3" json:"stacked_group_name,omitempty"`
+	GroupNames       []*common.SpanField      `protobuf:"bytes,4,rep,name=group_names,json=groupNames,proto3" json:"group_names,omitempty"`
+	StackedGroupName *common.SpanField        `protobuf:"bytes,5,opt,name=stacked_group_name,json=stackedGroupName,proto3" json:"stacked_group_name,omitempty"`
 }
 
 func (x *HorizontalBarChart_SpansQuery) Reset() {
@@ -503,14 +503,14 @@ func (*HorizontalBarChart_SpansQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_horizontal_bar_chart_proto_rawDescGZIP(), []int{0, 4}
 }
 
-func (x *HorizontalBarChart_SpansQuery) GetLuceneQuery() *common.LuceneQuery {
+func (x *HorizontalBarChart_SpansQuery) GetLuceneQuery() *widgetscommon.LuceneQuery {
 	if x != nil {
 		return x.LuceneQuery
 	}
 	return nil
 }
 
-func (x *HorizontalBarChart_SpansQuery) GetAggregation() *common1.SpansAggregation {
+func (x *HorizontalBarChart_SpansQuery) GetAggregation() *common.SpansAggregation {
 	if x != nil {
 		return x.Aggregation
 	}
@@ -524,14 +524,14 @@ func (x *HorizontalBarChart_SpansQuery) GetFilters() []*ast.Filter_SpansFilter {
 	return nil
 }
 
-func (x *HorizontalBarChart_SpansQuery) GetGroupNames() []*common1.SpanField {
+func (x *HorizontalBarChart_SpansQuery) GetGroupNames() []*common.SpanField {
 	if x != nil {
 		return x.GroupNames
 	}
 	return nil
 }
 
-func (x *HorizontalBarChart_SpansQuery) GetStackedGroupName() *common1.SpanField {
+func (x *HorizontalBarChart_SpansQuery) GetStackedGroupName() *common.SpanField {
 	if x != nil {
 		return x.StackedGroupName
 	}
@@ -543,7 +543,7 @@ type HorizontalBarChart_MetricsQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	PromqlQuery      *common.PromQlQuery         `protobuf:"bytes,1,opt,name=promql_query,json=promqlQuery,proto3" json:"promql_query,omitempty"`
+	PromqlQuery      *widgetscommon.PromQlQuery         `protobuf:"bytes,1,opt,name=promql_query,json=promqlQuery,proto3" json:"promql_query,omitempty"`
 	Filters          []*ast.Filter_MetricsFilter `protobuf:"bytes,2,rep,name=filters,proto3" json:"filters,omitempty"`
 	GroupNames       []*wrapperspb.StringValue   `protobuf:"bytes,3,rep,name=group_names,json=groupNames,proto3" json:"group_names,omitempty"`
 	StackedGroupName *wrapperspb.StringValue     `protobuf:"bytes,4,opt,name=stacked_group_name,json=stackedGroupName,proto3" json:"stacked_group_name,omitempty"`
@@ -581,7 +581,7 @@ func (*HorizontalBarChart_MetricsQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_horizontal_bar_chart_proto_rawDescGZIP(), []int{0, 5}
 }
 
-func (x *HorizontalBarChart_MetricsQuery) GetPromqlQuery() *common.PromQlQuery {
+func (x *HorizontalBarChart_MetricsQuery) GetPromqlQuery() *widgetscommon.PromQlQuery {
 	if x != nil {
 		return x.PromqlQuery
 	}
@@ -953,18 +953,18 @@ var file_com_coralogixapis_dashboards_v1_ast_widgets_horizontal_bar_chart_proto_
 	(*HorizontalBarChart_YAxisViewBy_YAxisViewByValue)(nil),    // 8: com.coralogixapis.dashboards.v1.ast.widgets.HorizontalBarChart.YAxisViewBy.YAxisViewByValue
 	(*wrapperspb.Int32Value)(nil),                              // 9: google.protobuf.Int32Value
 	(*wrapperspb.StringValue)(nil),                             // 10: google.protobuf.StringValue
-	(common.ScaleType)(0),                                      // 11: com.coralogixapis.dashboards.v1.ast.widgets.common.ScaleType
-	(*common.ColorsBy)(nil),                                    // 12: com.coralogixapis.dashboards.v1.ast.widgets.common.ColorsBy
-	(common.Unit)(0),                                           // 13: com.coralogixapis.dashboards.v1.ast.widgets.common.Unit
+	(widgetscommon.ScaleType)(0),                                      // 11: com.coralogixapis.dashboards.v1.ast.widgets.common.ScaleType
+	(*widgetscommon.ColorsBy)(nil),                                    // 12: com.coralogixapis.dashboards.v1.ast.widgets.common.ColorsBy
+	(widgetscommon.Unit)(0),                                           // 13: com.coralogixapis.dashboards.v1.ast.widgets.common.Unit
 	(*wrapperspb.BoolValue)(nil),                               // 14: google.protobuf.BoolValue
-	(common.SortByType)(0),                                     // 15: com.coralogixapis.dashboards.v1.ast.widgets.common.SortByType
-	(*common.LuceneQuery)(nil),                                 // 16: com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
-	(*common1.LogsAggregation)(nil),                            // 17: com.coralogixapis.dashboards.v1.common.LogsAggregation
+	(widgetscommon.SortByType)(0),                                     // 15: com.coralogixapis.dashboards.v1.ast.widgets.common.SortByType
+	(*widgetscommon.LuceneQuery)(nil),                                 // 16: com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
+	(*common.LogsAggregation)(nil),                            // 17: com.coralogixapis.dashboards.v1.common.LogsAggregation
 	(*ast.Filter_LogsFilter)(nil),                              // 18: com.coralogixapis.dashboards.v1.ast.Filter.LogsFilter
-	(*common1.SpansAggregation)(nil),                           // 19: com.coralogixapis.dashboards.v1.common.SpansAggregation
+	(*common.SpansAggregation)(nil),                           // 19: com.coralogixapis.dashboards.v1.common.SpansAggregation
 	(*ast.Filter_SpansFilter)(nil),                             // 20: com.coralogixapis.dashboards.v1.ast.Filter.SpansFilter
-	(*common1.SpanField)(nil),                                  // 21: com.coralogixapis.dashboards.v1.common.SpanField
-	(*common.PromQlQuery)(nil),                                 // 22: com.coralogixapis.dashboards.v1.ast.widgets.common.PromQlQuery
+	(*common.SpanField)(nil),                                  // 21: com.coralogixapis.dashboards.v1.common.SpanField
+	(*widgetscommon.PromQlQuery)(nil),                                 // 22: com.coralogixapis.dashboards.v1.ast.widgets.common.PromQlQuery
 	(*ast.Filter_MetricsFilter)(nil),                           // 23: com.coralogixapis.dashboards.v1.ast.Filter.MetricsFilter
 }
 var file_com_coralogixapis_dashboards_v1_ast_widgets_horizontal_bar_chart_proto_depIdxs = []int32{

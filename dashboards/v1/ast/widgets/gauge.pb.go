@@ -7,9 +7,9 @@
 package widgets
 
 import (
-	ast "com/coralogixapis/dashboards/v1/ast"
-	common "com/coralogixapis/dashboards/v1/ast/widgets/common"
-	common1 "com/coralogixapis/dashboards/v1/common"
+	ast "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast"
+	widgetscommon "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast/widgets/common"
+	common "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
@@ -384,7 +384,7 @@ type Gauge_MetricsQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	PromqlQuery *common.PromQlQuery         `protobuf:"bytes,1,opt,name=promql_query,json=promqlQuery,proto3" json:"promql_query,omitempty"`
+	PromqlQuery *widgetscommon.PromQlQuery         `protobuf:"bytes,1,opt,name=promql_query,json=promqlQuery,proto3" json:"promql_query,omitempty"`
 	Aggregation Gauge_Aggregation           `protobuf:"varint,2,opt,name=aggregation,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.Gauge_Aggregation" json:"aggregation,omitempty"`
 	Filters     []*ast.Filter_MetricsFilter `protobuf:"bytes,3,rep,name=filters,proto3" json:"filters,omitempty"`
 }
@@ -421,7 +421,7 @@ func (*Gauge_MetricsQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_gauge_proto_rawDescGZIP(), []int{0, 1}
 }
 
-func (x *Gauge_MetricsQuery) GetPromqlQuery() *common.PromQlQuery {
+func (x *Gauge_MetricsQuery) GetPromqlQuery() *widgetscommon.PromQlQuery {
 	if x != nil {
 		return x.PromqlQuery
 	}
@@ -447,8 +447,8 @@ type Gauge_LogsQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LuceneQuery     *common.LuceneQuery      `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
-	LogsAggregation *common1.LogsAggregation `protobuf:"bytes,2,opt,name=logs_aggregation,json=logsAggregation,proto3" json:"logs_aggregation,omitempty"`
+	LuceneQuery     *widgetscommon.LuceneQuery      `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
+	LogsAggregation *common.LogsAggregation `protobuf:"bytes,2,opt,name=logs_aggregation,json=logsAggregation,proto3" json:"logs_aggregation,omitempty"`
 	Aggregation     Gauge_Aggregation        `protobuf:"varint,3,opt,name=aggregation,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.Gauge_Aggregation" json:"aggregation,omitempty"`
 	Filters         []*ast.Filter_LogsFilter `protobuf:"bytes,4,rep,name=filters,proto3" json:"filters,omitempty"`
 }
@@ -485,14 +485,14 @@ func (*Gauge_LogsQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_gauge_proto_rawDescGZIP(), []int{0, 2}
 }
 
-func (x *Gauge_LogsQuery) GetLuceneQuery() *common.LuceneQuery {
+func (x *Gauge_LogsQuery) GetLuceneQuery() *widgetscommon.LuceneQuery {
 	if x != nil {
 		return x.LuceneQuery
 	}
 	return nil
 }
 
-func (x *Gauge_LogsQuery) GetLogsAggregation() *common1.LogsAggregation {
+func (x *Gauge_LogsQuery) GetLogsAggregation() *common.LogsAggregation {
 	if x != nil {
 		return x.LogsAggregation
 	}
@@ -518,8 +518,8 @@ type Gauge_SpansQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LuceneQuery      *common.LuceneQuery       `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
-	SpansAggregation *common1.SpansAggregation `protobuf:"bytes,2,opt,name=spans_aggregation,json=spansAggregation,proto3" json:"spans_aggregation,omitempty"`
+	LuceneQuery      *widgetscommon.LuceneQuery       `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
+	SpansAggregation *common.SpansAggregation `protobuf:"bytes,2,opt,name=spans_aggregation,json=spansAggregation,proto3" json:"spans_aggregation,omitempty"`
 	Aggregation      Gauge_Aggregation         `protobuf:"varint,3,opt,name=aggregation,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.Gauge_Aggregation" json:"aggregation,omitempty"`
 	Filters          []*ast.Filter_SpansFilter `protobuf:"bytes,4,rep,name=filters,proto3" json:"filters,omitempty"`
 }
@@ -556,14 +556,14 @@ func (*Gauge_SpansQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_gauge_proto_rawDescGZIP(), []int{0, 3}
 }
 
-func (x *Gauge_SpansQuery) GetLuceneQuery() *common.LuceneQuery {
+func (x *Gauge_SpansQuery) GetLuceneQuery() *widgetscommon.LuceneQuery {
 	if x != nil {
 		return x.LuceneQuery
 	}
 	return nil
 }
 
-func (x *Gauge_SpansQuery) GetSpansAggregation() *common1.SpansAggregation {
+func (x *Gauge_SpansQuery) GetSpansAggregation() *common.SpansAggregation {
 	if x != nil {
 		return x.SpansAggregation
 	}
@@ -589,7 +589,7 @@ type Gauge_DataprimeQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	DataprimeQuery *common1.DataprimeQuery `protobuf:"bytes,1,opt,name=dataprime_query,json=dataprimeQuery,proto3" json:"dataprime_query,omitempty"`
+	DataprimeQuery *common.DataprimeQuery `protobuf:"bytes,1,opt,name=dataprime_query,json=dataprimeQuery,proto3" json:"dataprime_query,omitempty"`
 	Filters        []*ast.Filter_Source    `protobuf:"bytes,2,rep,name=filters,proto3" json:"filters,omitempty"`
 }
 
@@ -625,7 +625,7 @@ func (*Gauge_DataprimeQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_gauge_proto_rawDescGZIP(), []int{0, 4}
 }
 
-func (x *Gauge_DataprimeQuery) GetDataprimeQuery() *common1.DataprimeQuery {
+func (x *Gauge_DataprimeQuery) GetDataprimeQuery() *common.DataprimeQuery {
 	if x != nil {
 		return x.DataprimeQuery
 	}
@@ -928,14 +928,14 @@ var file_com_coralogixapis_dashboards_v1_ast_widgets_gauge_proto_goTypes = []int
 	(*Gauge_Threshold)(nil),          // 8: com.coralogixapis.dashboards.v1.ast.widgets.Gauge.Threshold
 	(*wrapperspb.DoubleValue)(nil),   // 9: google.protobuf.DoubleValue
 	(*wrapperspb.BoolValue)(nil),     // 10: google.protobuf.BoolValue
-	(*common.PromQlQuery)(nil),       // 11: com.coralogixapis.dashboards.v1.ast.widgets.common.PromQlQuery
+	(*widgetscommon.PromQlQuery)(nil),       // 11: com.coralogixapis.dashboards.v1.ast.widgets.common.PromQlQuery
 	(*ast.Filter_MetricsFilter)(nil), // 12: com.coralogixapis.dashboards.v1.ast.Filter.MetricsFilter
-	(*common.LuceneQuery)(nil),       // 13: com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
-	(*common1.LogsAggregation)(nil),  // 14: com.coralogixapis.dashboards.v1.common.LogsAggregation
+	(*widgetscommon.LuceneQuery)(nil),       // 13: com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
+	(*common.LogsAggregation)(nil),  // 14: com.coralogixapis.dashboards.v1.common.LogsAggregation
 	(*ast.Filter_LogsFilter)(nil),    // 15: com.coralogixapis.dashboards.v1.ast.Filter.LogsFilter
-	(*common1.SpansAggregation)(nil), // 16: com.coralogixapis.dashboards.v1.common.SpansAggregation
+	(*common.SpansAggregation)(nil), // 16: com.coralogixapis.dashboards.v1.common.SpansAggregation
 	(*ast.Filter_SpansFilter)(nil),   // 17: com.coralogixapis.dashboards.v1.ast.Filter.SpansFilter
-	(*common1.DataprimeQuery)(nil),   // 18: com.coralogixapis.dashboards.v1.common.DataprimeQuery
+	(*common.DataprimeQuery)(nil),   // 18: com.coralogixapis.dashboards.v1.common.DataprimeQuery
 	(*ast.Filter_Source)(nil),        // 19: com.coralogixapis.dashboards.v1.ast.Filter.Source
 	(*wrapperspb.StringValue)(nil),   // 20: google.protobuf.StringValue
 }

@@ -7,9 +7,9 @@
 package widgets
 
 import (
-	ast "com/coralogixapis/dashboards/v1/ast"
-	common1 "com/coralogixapis/dashboards/v1/ast/widgets/common"
-	common "com/coralogixapis/dashboards/v1/common"
+	ast "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast"
+	widgetscommon "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast/widgets/common"
+	common "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
@@ -274,7 +274,7 @@ type DataTable_LogsQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LuceneQuery *common1.LuceneQuery          `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
+	LuceneQuery *widgetscommon.LuceneQuery          `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
 	Filters     []*ast.Filter_LogsFilter      `protobuf:"bytes,2,rep,name=filters,proto3" json:"filters,omitempty"`
 	Grouping    *DataTable_LogsQuery_Grouping `protobuf:"bytes,3,opt,name=grouping,proto3" json:"grouping,omitempty"`
 }
@@ -311,7 +311,7 @@ func (*DataTable_LogsQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_data_table_proto_rawDescGZIP(), []int{0, 1}
 }
 
-func (x *DataTable_LogsQuery) GetLuceneQuery() *common1.LuceneQuery {
+func (x *DataTable_LogsQuery) GetLuceneQuery() *widgetscommon.LuceneQuery {
 	if x != nil {
 		return x.LuceneQuery
 	}
@@ -337,7 +337,7 @@ type DataTable_SpansQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LuceneQuery *common1.LuceneQuery           `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
+	LuceneQuery *widgetscommon.LuceneQuery           `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
 	Filters     []*ast.Filter_SpansFilter      `protobuf:"bytes,2,rep,name=filters,proto3" json:"filters,omitempty"`
 	Grouping    *DataTable_SpansQuery_Grouping `protobuf:"bytes,3,opt,name=grouping,proto3" json:"grouping,omitempty"`
 }
@@ -374,7 +374,7 @@ func (*DataTable_SpansQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_data_table_proto_rawDescGZIP(), []int{0, 2}
 }
 
-func (x *DataTable_SpansQuery) GetLuceneQuery() *common1.LuceneQuery {
+func (x *DataTable_SpansQuery) GetLuceneQuery() *widgetscommon.LuceneQuery {
 	if x != nil {
 		return x.LuceneQuery
 	}
@@ -400,7 +400,7 @@ type DataTable_MetricsQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	PromqlQuery *common1.PromQlQuery        `protobuf:"bytes,1,opt,name=promql_query,json=promqlQuery,proto3" json:"promql_query,omitempty"`
+	PromqlQuery *widgetscommon.PromQlQuery        `protobuf:"bytes,1,opt,name=promql_query,json=promqlQuery,proto3" json:"promql_query,omitempty"`
 	Filters     []*ast.Filter_MetricsFilter `protobuf:"bytes,2,rep,name=filters,proto3" json:"filters,omitempty"`
 }
 
@@ -436,7 +436,7 @@ func (*DataTable_MetricsQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_data_table_proto_rawDescGZIP(), []int{0, 3}
 }
 
-func (x *DataTable_MetricsQuery) GetPromqlQuery() *common1.PromQlQuery {
+func (x *DataTable_MetricsQuery) GetPromqlQuery() *widgetscommon.PromQlQuery {
 	if x != nil {
 		return x.PromqlQuery
 	}
@@ -1072,10 +1072,10 @@ var file_com_coralogixapis_dashboards_v1_ast_widgets_data_table_proto_goTypes = 
 	(*DataTable_SpansQuery_Aggregation)(nil), // 11: com.coralogixapis.dashboards.v1.ast.widgets.DataTable.SpansQuery.Aggregation
 	(*wrapperspb.Int32Value)(nil),            // 12: google.protobuf.Int32Value
 	(*common.OrderingField)(nil),             // 13: com.coralogixapis.dashboards.v1.common.OrderingField
-	(*common1.LuceneQuery)(nil),              // 14: com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
+	(*widgetscommon.LuceneQuery)(nil),              // 14: com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
 	(*ast.Filter_LogsFilter)(nil),            // 15: com.coralogixapis.dashboards.v1.ast.Filter.LogsFilter
 	(*ast.Filter_SpansFilter)(nil),           // 16: com.coralogixapis.dashboards.v1.ast.Filter.SpansFilter
-	(*common1.PromQlQuery)(nil),              // 17: com.coralogixapis.dashboards.v1.ast.widgets.common.PromQlQuery
+	(*widgetscommon.PromQlQuery)(nil),              // 17: com.coralogixapis.dashboards.v1.ast.widgets.common.PromQlQuery
 	(*ast.Filter_MetricsFilter)(nil),         // 18: com.coralogixapis.dashboards.v1.ast.Filter.MetricsFilter
 	(*common.DataprimeQuery)(nil),            // 19: com.coralogixapis.dashboards.v1.common.DataprimeQuery
 	(*ast.Filter_Source)(nil),                // 20: com.coralogixapis.dashboards.v1.ast.Filter.Source

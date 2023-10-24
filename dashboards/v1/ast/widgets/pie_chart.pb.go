@@ -7,9 +7,9 @@
 package widgets
 
 import (
-	ast "com/coralogixapis/dashboards/v1/ast"
-	common "com/coralogixapis/dashboards/v1/ast/widgets/common"
-	common1 "com/coralogixapis/dashboards/v1/common"
+	ast "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast"
+	widgetscommon "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast/widgets/common"
+	common "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
@@ -85,7 +85,7 @@ type PieChart struct {
 	LabelDefinition    *PieChart_LabelDefinition `protobuf:"bytes,5,opt,name=label_definition,json=labelDefinition,proto3" json:"label_definition,omitempty"`
 	ShowLegend         *wrapperspb.BoolValue     `protobuf:"bytes,6,opt,name=show_legend,json=showLegend,proto3" json:"show_legend,omitempty"`
 	GroupNameTemplate  *wrapperspb.StringValue   `protobuf:"bytes,7,opt,name=group_name_template,json=groupNameTemplate,proto3" json:"group_name_template,omitempty"`
-	Unit               common.Unit               `protobuf:"varint,8,opt,name=unit,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.common.Unit" json:"unit,omitempty"`
+	Unit               widgetscommon.Unit               `protobuf:"varint,8,opt,name=unit,proto3,enum=com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.Unit" json:"unit,omitempty"`
 	ColorScheme        *wrapperspb.StringValue   `protobuf:"bytes,9,opt,name=color_scheme,json=colorScheme,proto3" json:"color_scheme,omitempty"`
 }
 
@@ -170,11 +170,11 @@ func (x *PieChart) GetGroupNameTemplate() *wrapperspb.StringValue {
 	return nil
 }
 
-func (x *PieChart) GetUnit() common.Unit {
+func (x *PieChart) GetUnit() widgetscommon.Unit {
 	if x != nil {
 		return x.Unit
 	}
-	return common.Unit(0)
+	return widgetscommon.Unit(0)
 }
 
 func (x *PieChart) GetColorScheme() *wrapperspb.StringValue {
@@ -417,8 +417,8 @@ type PieChart_LogsQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LuceneQuery      *common.LuceneQuery       `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
-	Aggregation      *common1.LogsAggregation  `protobuf:"bytes,2,opt,name=aggregation,proto3" json:"aggregation,omitempty"`
+	LuceneQuery      *widgetscommon.LuceneQuery       `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
+	Aggregation      *common.LogsAggregation  `protobuf:"bytes,2,opt,name=aggregation,proto3" json:"aggregation,omitempty"`
 	Filters          []*ast.Filter_LogsFilter  `protobuf:"bytes,3,rep,name=filters,proto3" json:"filters,omitempty"`
 	GroupNames       []*wrapperspb.StringValue `protobuf:"bytes,4,rep,name=group_names,json=groupNames,proto3" json:"group_names,omitempty"`
 	StackedGroupName *wrapperspb.StringValue   `protobuf:"bytes,5,opt,name=stacked_group_name,json=stackedGroupName,proto3" json:"stacked_group_name,omitempty"`
@@ -456,14 +456,14 @@ func (*PieChart_LogsQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_pie_chart_proto_rawDescGZIP(), []int{0, 3}
 }
 
-func (x *PieChart_LogsQuery) GetLuceneQuery() *common.LuceneQuery {
+func (x *PieChart_LogsQuery) GetLuceneQuery() *widgetscommon.LuceneQuery {
 	if x != nil {
 		return x.LuceneQuery
 	}
 	return nil
 }
 
-func (x *PieChart_LogsQuery) GetAggregation() *common1.LogsAggregation {
+func (x *PieChart_LogsQuery) GetAggregation() *common.LogsAggregation {
 	if x != nil {
 		return x.Aggregation
 	}
@@ -496,11 +496,11 @@ type PieChart_SpansQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	LuceneQuery      *common.LuceneQuery       `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
-	Aggregation      *common1.SpansAggregation `protobuf:"bytes,2,opt,name=aggregation,proto3" json:"aggregation,omitempty"`
+	LuceneQuery      *widgetscommon.LuceneQuery       `protobuf:"bytes,1,opt,name=lucene_query,json=luceneQuery,proto3" json:"lucene_query,omitempty"`
+	Aggregation      *common.SpansAggregation `protobuf:"bytes,2,opt,name=aggregation,proto3" json:"aggregation,omitempty"`
 	Filters          []*ast.Filter_SpansFilter `protobuf:"bytes,3,rep,name=filters,proto3" json:"filters,omitempty"`
-	GroupNames       []*common1.SpanField      `protobuf:"bytes,4,rep,name=group_names,json=groupNames,proto3" json:"group_names,omitempty"`
-	StackedGroupName *common1.SpanField        `protobuf:"bytes,5,opt,name=stacked_group_name,json=stackedGroupName,proto3" json:"stacked_group_name,omitempty"`
+	GroupNames       []*common.SpanField      `protobuf:"bytes,4,rep,name=group_names,json=groupNames,proto3" json:"group_names,omitempty"`
+	StackedGroupName *common.SpanField        `protobuf:"bytes,5,opt,name=stacked_group_name,json=stackedGroupName,proto3" json:"stacked_group_name,omitempty"`
 }
 
 func (x *PieChart_SpansQuery) Reset() {
@@ -535,14 +535,14 @@ func (*PieChart_SpansQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_pie_chart_proto_rawDescGZIP(), []int{0, 4}
 }
 
-func (x *PieChart_SpansQuery) GetLuceneQuery() *common.LuceneQuery {
+func (x *PieChart_SpansQuery) GetLuceneQuery() *widgetscommon.LuceneQuery {
 	if x != nil {
 		return x.LuceneQuery
 	}
 	return nil
 }
 
-func (x *PieChart_SpansQuery) GetAggregation() *common1.SpansAggregation {
+func (x *PieChart_SpansQuery) GetAggregation() *common.SpansAggregation {
 	if x != nil {
 		return x.Aggregation
 	}
@@ -556,14 +556,14 @@ func (x *PieChart_SpansQuery) GetFilters() []*ast.Filter_SpansFilter {
 	return nil
 }
 
-func (x *PieChart_SpansQuery) GetGroupNames() []*common1.SpanField {
+func (x *PieChart_SpansQuery) GetGroupNames() []*common.SpanField {
 	if x != nil {
 		return x.GroupNames
 	}
 	return nil
 }
 
-func (x *PieChart_SpansQuery) GetStackedGroupName() *common1.SpanField {
+func (x *PieChart_SpansQuery) GetStackedGroupName() *common.SpanField {
 	if x != nil {
 		return x.StackedGroupName
 	}
@@ -575,7 +575,7 @@ type PieChart_MetricsQuery struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	PromqlQuery      *common.PromQlQuery         `protobuf:"bytes,1,opt,name=promql_query,json=promqlQuery,proto3" json:"promql_query,omitempty"`
+	PromqlQuery      *widgetscommon.PromQlQuery         `protobuf:"bytes,1,opt,name=promql_query,json=promqlQuery,proto3" json:"promql_query,omitempty"`
 	Filters          []*ast.Filter_MetricsFilter `protobuf:"bytes,2,rep,name=filters,proto3" json:"filters,omitempty"`
 	GroupNames       []*wrapperspb.StringValue   `protobuf:"bytes,3,rep,name=group_names,json=groupNames,proto3" json:"group_names,omitempty"`
 	StackedGroupName *wrapperspb.StringValue     `protobuf:"bytes,4,opt,name=stacked_group_name,json=stackedGroupName,proto3" json:"stacked_group_name,omitempty"`
@@ -613,7 +613,7 @@ func (*PieChart_MetricsQuery) Descriptor() ([]byte, []int) {
 	return file_com_coralogixapis_dashboards_v1_ast_widgets_pie_chart_proto_rawDescGZIP(), []int{0, 5}
 }
 
-func (x *PieChart_MetricsQuery) GetPromqlQuery() *common.PromQlQuery {
+func (x *PieChart_MetricsQuery) GetPromqlQuery() *widgetscommon.PromQlQuery {
 	if x != nil {
 		return x.PromqlQuery
 	}
@@ -890,14 +890,14 @@ var file_com_coralogixapis_dashboards_v1_ast_widgets_pie_chart_proto_goTypes = [
 	(*wrapperspb.Int32Value)(nil),    // 8: google.protobuf.Int32Value
 	(*wrapperspb.BoolValue)(nil),     // 9: google.protobuf.BoolValue
 	(*wrapperspb.StringValue)(nil),   // 10: google.protobuf.StringValue
-	(common.Unit)(0),                 // 11: com.coralogixapis.dashboards.v1.ast.widgets.common.Unit
-	(*common.LuceneQuery)(nil),       // 12: com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
-	(*common1.LogsAggregation)(nil),  // 13: com.coralogixapis.dashboards.v1.common.LogsAggregation
+	(widgetscommon.Unit)(0),                 // 11: com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.Unit
+	(*widgetscommon.LuceneQuery)(nil),       // 12: com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.LuceneQuery
+	(*common.LogsAggregation)(nil),  // 13: com.coralogixapis.dashboards.v1.widgetscommon.LogsAggregation
 	(*ast.Filter_LogsFilter)(nil),    // 14: com.coralogixapis.dashboards.v1.ast.Filter.LogsFilter
-	(*common1.SpansAggregation)(nil), // 15: com.coralogixapis.dashboards.v1.common.SpansAggregation
+	(*common.SpansAggregation)(nil), // 15: com.coralogixapis.dashboards.v1.widgetscommon.SpansAggregation
 	(*ast.Filter_SpansFilter)(nil),   // 16: com.coralogixapis.dashboards.v1.ast.Filter.SpansFilter
-	(*common1.SpanField)(nil),        // 17: com.coralogixapis.dashboards.v1.common.SpanField
-	(*common.PromQlQuery)(nil),       // 18: com.coralogixapis.dashboards.v1.ast.widgets.common.PromQlQuery
+	(*common.SpanField)(nil),        // 17: com.coralogixapis.dashboards.v1.widgetscommon.SpanField
+	(*widgetscommon.PromQlQuery)(nil),       // 18: com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.PromQlQuery
 	(*ast.Filter_MetricsFilter)(nil), // 19: com.coralogixapis.dashboards.v1.ast.Filter.MetricsFilter
 }
 var file_com_coralogixapis_dashboards_v1_ast_widgets_pie_chart_proto_depIdxs = []int32{
@@ -908,7 +908,7 @@ var file_com_coralogixapis_dashboards_v1_ast_widgets_pie_chart_proto_depIdxs = [
 	4,  // 4: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.label_definition:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LabelDefinition
 	9,  // 5: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.show_legend:type_name -> google.protobuf.BoolValue
 	10, // 6: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.group_name_template:type_name -> google.protobuf.StringValue
-	11, // 7: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.unit:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.common.Unit
+	11, // 7: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.unit:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.Unit
 	10, // 8: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.color_scheme:type_name -> google.protobuf.StringValue
 	5,  // 9: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.Query.logs:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LogsQuery
 	6,  // 10: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.Query.spans:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.PieChart.SpansQuery
@@ -920,17 +920,17 @@ var file_com_coralogixapis_dashboards_v1_ast_widgets_pie_chart_proto_depIdxs = [
 	9,  // 16: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LabelDefinition.show_name:type_name -> google.protobuf.BoolValue
 	9,  // 17: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LabelDefinition.show_value:type_name -> google.protobuf.BoolValue
 	9,  // 18: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LabelDefinition.show_percentage:type_name -> google.protobuf.BoolValue
-	12, // 19: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LogsQuery.lucene_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
-	13, // 20: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LogsQuery.aggregation:type_name -> com.coralogixapis.dashboards.v1.common.LogsAggregation
+	12, // 19: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LogsQuery.lucene_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.LuceneQuery
+	13, // 20: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LogsQuery.aggregation:type_name -> com.coralogixapis.dashboards.v1.widgetscommon.LogsAggregation
 	14, // 21: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LogsQuery.filters:type_name -> com.coralogixapis.dashboards.v1.ast.Filter.LogsFilter
 	10, // 22: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LogsQuery.group_names:type_name -> google.protobuf.StringValue
 	10, // 23: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.LogsQuery.stacked_group_name:type_name -> google.protobuf.StringValue
-	12, // 24: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.SpansQuery.lucene_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.common.LuceneQuery
-	15, // 25: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.SpansQuery.aggregation:type_name -> com.coralogixapis.dashboards.v1.common.SpansAggregation
+	12, // 24: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.SpansQuery.lucene_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.LuceneQuery
+	15, // 25: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.SpansQuery.aggregation:type_name -> com.coralogixapis.dashboards.v1.widgetscommon.SpansAggregation
 	16, // 26: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.SpansQuery.filters:type_name -> com.coralogixapis.dashboards.v1.ast.Filter.SpansFilter
-	17, // 27: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.SpansQuery.group_names:type_name -> com.coralogixapis.dashboards.v1.common.SpanField
-	17, // 28: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.SpansQuery.stacked_group_name:type_name -> com.coralogixapis.dashboards.v1.common.SpanField
-	18, // 29: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.MetricsQuery.promql_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.common.PromQlQuery
+	17, // 27: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.SpansQuery.group_names:type_name -> com.coralogixapis.dashboards.v1.widgetscommon.SpanField
+	17, // 28: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.SpansQuery.stacked_group_name:type_name -> com.coralogixapis.dashboards.v1.widgetscommon.SpanField
+	18, // 29: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.MetricsQuery.promql_query:type_name -> com.coralogixapis.dashboards.v1.ast.widgets.widgetscommon.PromQlQuery
 	19, // 30: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.MetricsQuery.filters:type_name -> com.coralogixapis.dashboards.v1.ast.Filter.MetricsFilter
 	10, // 31: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.MetricsQuery.group_names:type_name -> google.protobuf.StringValue
 	10, // 32: com.coralogixapis.dashboards.v1.ast.widgets.PieChart.MetricsQuery.stacked_group_name:type_name -> google.protobuf.StringValue
