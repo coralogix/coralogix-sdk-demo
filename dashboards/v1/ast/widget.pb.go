@@ -7,8 +7,8 @@
 package ast
 
 import (
-	v1 "com/coralogixapis/dashboards/v1"
-	widgets "com/coralogixapis/dashboards/v1/ast/widgets"
+	v1 "github.com/coralogix/coralogix-sdk-demo/dashboards/v1"
+	widgets "github.com/coralogix/coralogix-sdk-demo/dashboards/v1/ast/widgets"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"

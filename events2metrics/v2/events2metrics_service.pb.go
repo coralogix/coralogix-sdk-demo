@@ -7,8 +7,8 @@
 package v2
 
 import (
-	v21 "coralogix-sdk/logs2metrics/v2"
-	v2 "coralogix-sdk/spans2metrics/v2"
+	logs2metricsv2 "github.com/coralogix/coralogix-sdk-demo/logs2metrics/v2"
+	spans2metricsv2 "github.com/coralogix/coralogix-sdk-demo/spans2metrics/v2"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -818,14 +818,14 @@ func (m *ListLabelsCardinalityRequest) GetQuery() isListLabelsCardinalityRequest
 	return nil
 }
 
-func (x *ListLabelsCardinalityRequest) GetSpansQuery() *v2.SpansQuery {
+func (x *ListLabelsCardinalityRequest) GetSpansQuery() *spans2metricsv2.SpansQuery {
 	if x, ok := x.GetQuery().(*ListLabelsCardinalityRequest_SpansQuery); ok {
 		return x.SpansQuery
 	}
 	return nil
 }
 
-func (x *ListLabelsCardinalityRequest) GetLogsQuery() *v21.LogsQuery {
+func (x *ListLabelsCardinalityRequest) GetLogsQuery() *logs2metricsv2.LogsQuery {
 	if x, ok := x.GetQuery().(*ListLabelsCardinalityRequest_LogsQuery); ok {
 		return x.LogsQuery
 	}
@@ -844,11 +844,11 @@ type isListLabelsCardinalityRequest_Query interface {
 }
 
 type ListLabelsCardinalityRequest_SpansQuery struct {
-	SpansQuery *v2.SpansQuery `protobuf:"bytes,1,opt,name=spans_query,json=spansQuery,proto3,oneof"`
+	SpansQuery *spans2metricsv2.SpansQuery `protobuf:"bytes,1,opt,name=spans_query,json=spansQuery,proto3,oneof"`
 }
 
 type ListLabelsCardinalityRequest_LogsQuery struct {
-	LogsQuery *v21.LogsQuery `protobuf:"bytes,2,opt,name=logs_query,json=logsQuery,proto3,oneof"`
+	LogsQuery *logs2metricsv2.LogsQuery `protobuf:"bytes,2,opt,name=logs_query,json=logsQuery,proto3,oneof"`
 }
 
 func (*ListLabelsCardinalityRequest_SpansQuery) isListLabelsCardinalityRequest_Query() {}
@@ -1239,8 +1239,8 @@ var file_com_coralogixapis_events2metrics_v2_events2metrics_service_proto_goType
 	(*E2MCreateParams)(nil),                  // 17: com.coralogixapis.events2metrics.v2.E2MCreateParams
 	(*E2M)(nil),                              // 18: com.coralogixapis.events2metrics.v2.E2M
 	(*wrapperspb.StringValue)(nil),           // 19: google.protobuf.StringValue
-	(*v2.SpansQuery)(nil),                    // 20: com.coralogixapis.spans2metrics.v2.SpansQuery
-	(*v21.LogsQuery)(nil),                    // 21: com.coralogixapis.logs2metrics.v2.LogsQuery
+	(*spans2metricsv2.SpansQuery)(nil),                    // 20: com.coralogixapis.spans2metrics.v2.SpansQuery
+	(*logs2metricsv2.LogsQuery)(nil),                    // 21: com.coralogixapis.logs2metrics.v2.LogsQuery
 	(*MetricLabel)(nil),                      // 22: com.coralogixapis.events2metrics.v2.MetricLabel
 }
 var file_com_coralogixapis_events2metrics_v2_events2metrics_service_proto_depIdxs = []int32{
