@@ -1,0 +1,37 @@
+syntax = "proto3";
+option go_package = "com/coralogixapis/dashboards/v1/services";
+
+package com.coralogixapis.dashboards.v1.services;
+
+import "com/coralogixapis/dashboards/v1/audit_log.proto";
+import "com/coralogixapis/dashboards/v1/common/query.proto";
+import "com/coralogixapis/dashboards/v1/common/time_frame.proto";
+import "google/protobuf/wrappers.proto";
+
+service DataprimeDataSourceService {
+  rpc SearchDataprime(SearchDataprimeRequest) returns (SearchDataprimeResponse) {
+    option (audit_log_description).description = "Search Dataprime";
+  }
+}
+
+message SearchDataprimeRequest {
+  common.SerializedDataprimeQuery dataprime_query = 1;
+  common.DataprimeQuery dataprime_query_raw = 2;
+  common.TimeFrame time_frame = 3;
+  google.protobuf.Int32Value limit = 4;
+}
+
+message SearchDataprimeResponse {
+  repeated DataprimeResult results = 1;
+
+  message DataprimeResult {
+    repeated KeyValue metadata = 1;
+    repeated KeyValue labels = 2;
+    string user_data = 3;
+
+    message KeyValue {
+      string key = 1;
+      string value = 2;
+    }
+  }
+}
