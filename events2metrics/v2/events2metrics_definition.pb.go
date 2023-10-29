@@ -7,8 +7,8 @@
 package v2
 
 import (
-	v21 "coralogix-sdk/logs2metrics/v2"
-	v2 "coralogix-sdk/spans2metrics/v2"
+	s2m "github.com/coralogix/coralogix-sdk-demo/spans2metrics/v2"
+	l2m "github.com/coralogix/coralogix-sdk-demo/logs2metrics/v2"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
@@ -307,14 +307,14 @@ func (m *E2M) GetQuery() isE2M_Query {
 	return nil
 }
 
-func (x *E2M) GetSpansQuery() *v2.SpansQuery {
+func (x *E2M) GetSpansQuery() *s2m.SpansQuery {
 	if x, ok := x.GetQuery().(*E2M_SpansQuery); ok {
 		return x.SpansQuery
 	}
 	return nil
 }
 
-func (x *E2M) GetLogsQuery() *v21.LogsQuery {
+func (x *E2M) GetLogsQuery() *l2m.LogsQuery {
 	if x, ok := x.GetQuery().(*E2M_LogsQuery); ok {
 		return x.LogsQuery
 	}
@@ -326,11 +326,11 @@ type isE2M_Query interface {
 }
 
 type E2M_SpansQuery struct {
-	SpansQuery *v2.SpansQuery `protobuf:"bytes,10,opt,name=spans_query,json=spansQuery,proto3,oneof"`
+	SpansQuery *s2m.SpansQuery `protobuf:"bytes,10,opt,name=spans_query,json=spansQuery,proto3,oneof"`
 }
 
 type E2M_LogsQuery struct {
-	LogsQuery *v21.LogsQuery `protobuf:"bytes,11,opt,name=logs_query,json=logsQuery,proto3,oneof"`
+	LogsQuery *l2m.LogsQuery `protobuf:"bytes,11,opt,name=logs_query,json=logsQuery,proto3,oneof"`
 }
 
 func (*E2M_SpansQuery) isE2M_Query() {}
@@ -435,14 +435,14 @@ func (m *E2MCreateParams) GetQuery() isE2MCreateParams_Query {
 	return nil
 }
 
-func (x *E2MCreateParams) GetSpansQuery() *v2.SpansQuery {
+func (x *E2MCreateParams) GetSpansQuery() *s2m.SpansQuery {
 	if x, ok := x.GetQuery().(*E2MCreateParams_SpansQuery); ok {
 		return x.SpansQuery
 	}
 	return nil
 }
 
-func (x *E2MCreateParams) GetLogsQuery() *v21.LogsQuery {
+func (x *E2MCreateParams) GetLogsQuery() *l2m.LogsQuery {
 	if x, ok := x.GetQuery().(*E2MCreateParams_LogsQuery); ok {
 		return x.LogsQuery
 	}
@@ -454,11 +454,11 @@ type isE2MCreateParams_Query interface {
 }
 
 type E2MCreateParams_SpansQuery struct {
-	SpansQuery *v2.SpansQuery `protobuf:"bytes,7,opt,name=spans_query,json=spansQuery,proto3,oneof"`
+	SpansQuery *s2m.SpansQuery `protobuf:"bytes,7,opt,name=spans_query,json=spansQuery,proto3,oneof"`
 }
 
 type E2MCreateParams_LogsQuery struct {
-	LogsQuery *v21.LogsQuery `protobuf:"bytes,8,opt,name=logs_query,json=logsQuery,proto3,oneof"`
+	LogsQuery *l2m.LogsQuery `protobuf:"bytes,8,opt,name=logs_query,json=logsQuery,proto3,oneof"`
 }
 
 func (*E2MCreateParams_SpansQuery) isE2MCreateParams_Query() {}
@@ -1059,8 +1059,8 @@ var file_com_coralogixapis_events2metrics_v2_events2metrics_definition_proto_goT
 	(*E2MAggSamples)(nil),          // 9: com.coralogixapis.events2metrics.v2.E2MAggSamples
 	(*E2MAggHistogram)(nil),        // 10: com.coralogixapis.events2metrics.v2.E2MAggHistogram
 	(*wrapperspb.StringValue)(nil), // 11: google.protobuf.StringValue
-	(*v2.SpansQuery)(nil),          // 12: com.coralogixapis.spans2metrics.v2.SpansQuery
-	(*v21.LogsQuery)(nil),          // 13: com.coralogixapis.logs2metrics.v2.LogsQuery
+	(*s2m.SpansQuery)(nil),          // 12: com.coralogixapis.spans2metrics.v2.SpansQuery
+	(*l2m.LogsQuery)(nil),          // 13: com.coralogixapis.logs2metrics.v2.LogsQuery
 	(*wrapperspb.Int32Value)(nil),  // 14: google.protobuf.Int32Value
 }
 var file_com_coralogixapis_events2metrics_v2_events2metrics_definition_proto_depIdxs = []int32{
